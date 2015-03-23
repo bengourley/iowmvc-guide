@@ -86,6 +86,7 @@ init.js
 
 ### S-MVC
 
+So the acronym MVC – model, view, controller – is missing a major component: services.
 
 [ventnor]: https://github.com/bengourley/ventnor
 [merstone]: https://github.com/bengourley/merstone
