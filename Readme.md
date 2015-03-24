@@ -7,10 +7,14 @@ frontend JS applications:
 - [merstone models][merstone]
 - [chale collections][chale]
 
+This guide is primarily a progression from using Backbone but will hopefully provide some insight regardless of your varying MVC framework mileage.
+
 ## TOC
 
 - [Philosophy](#philosophy)
 - [Structuring an application](#structuring-an-application)
+  - [Active record vs. Service Oriented](#active-record-vs-service-oriented)
+  - [The benefits of services](#the-benefits-of-services)
 
 ## Philosophy
 
@@ -103,6 +107,12 @@ Whereas the above example could live anywhere, happily decoupled in a separate c
 #### Homogeneity
 
 The service locator pattern with a centralised registry of application services is the go-to pattern on the server. For homogeneity, wouldn't it be nice to use the same pattern in the browser? *(obviously not if it had some major drawbacks vs. active record, of course!)*
+
+#### Persistence and backend
+
+The Backbone model and collections cater for the simple use case of a standard CRUD based persistence layer over AJAX. This can of course be customised or overridden, but now you're off of the beaten path and throwing out a lot of what Backbone does for you.
+
+In service-land, each application service can have its own persistence, be it a JSON CRUD API over HTTP, websockets, localStorage in the browser, or even a third party data source. If the browser can talk to it, you can make a service wrapper around it.
 
 [ventnor]: https://github.com/bengourley/ventnor
 [merstone]: https://github.com/bengourley/merstone
