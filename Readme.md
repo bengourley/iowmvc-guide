@@ -84,9 +84,25 @@ controllers/
 init.js
 ```
 
-### S-MVC
+### The benefits of services
 
-So the acronym MVC – model, view, controller – is missing a major component: services.
+#### Observability
+
+A good application level service should be an event emitter. That way, any part of the application observe the services for various changes and updates without directly coupling to the service itself.
+
+Say you have a blog CMS application. In the interface you want to keep a list of recently edited offers. To do this with a service, it would be as simple as the following:
+
+```js
+serviceLocator.articleService.on('create', function (data) {
+  recentCollection.add(new ArticleModel(serviceLocator, data))
+})
+```
+
+Whereas the above example could live anywhere, happily decoupled in a separate component and just requiring access to the serviceLocator, in an application with Active Collections, you would have to hook in to the exact location where articles are created (and remember there might be more than one location) adding complexity to an existing component.
+
+#### Homogeneity
+
+The service locator pattern with a centralised registry of application services is the go-to pattern on the server. For homogeneity, wouldn't it be nice to use the same pattern in the browser? *(obviously not if it had some major drawbacks vs. active record, of course!)*
 
 [ventnor]: https://github.com/bengourley/ventnor
 [merstone]: https://github.com/bengourley/merstone
