@@ -22,6 +22,16 @@ These modules were born from an admiration of Backbone (and the proliferation
 of other JS frameworks) that brought decent application structure and useful
 bases for frontend development to the browser wilderness.
 
+Generally the existing solutions suffer from bloatedness and brutal APIs. Lots
+of frameworks enforce their own inheritance and object creation, but these
+constructs already exist in JS. As soon as you built on top of something thats not
+the common denominator (which is plain JS) you become incompatible with lots of
+modules, or have to "frameworkify" things if you want to be compatible with them.
+
+IOWMVC is about setting out some base classes that do the basic model view and
+collection functionality, that then allow you to write your application logic
+in plain ol' JS. So far, nothing else I've seen does this.
+
 Inspired (but frustrated) by these monoliths, [ventnor][ventnor], [merstone][merstone]
 and [chale][chale] – known collectively here as IOWMVC: **I**sle **o**f **W**ight
 **MVC** – are a set of loosely coupled, modular components, subscribing heavily
